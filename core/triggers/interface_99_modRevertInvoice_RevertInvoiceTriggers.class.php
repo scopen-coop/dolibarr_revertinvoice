@@ -273,6 +273,10 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 									$tmpsupplierinvoice->fk_project = $object->fk_project;
 									$tmpsupplierinvoice->note_private = $object->note_private;
 									$tmpsupplierinvoice->note_public = $object->note_public;
+									$tmpsupplierinvoice->cond_reglement_id = $object->cond_reglement_id;
+									$tmpsupplierinvoice->mode_reglement_id = $object->mode_reglement_id;
+                                    $tmpsupplierinvoice->date_echeance = $object->date_lim_reglement;
+                                    $tmpsupplierinvoice->array_options = $object->array_options;
 
 									$tmpsupplierinvoice->lines = $object->lines;
 
