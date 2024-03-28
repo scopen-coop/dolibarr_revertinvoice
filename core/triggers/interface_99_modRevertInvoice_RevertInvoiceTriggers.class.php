@@ -239,7 +239,7 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 							dol_syslog("We create an invoice for thirdparty id ".$object->socid." that need to be reverted into entity ".$entityinvoicetarget.", we will create supplier invoice on thirdparty id ".$sellerid, LOG_WARNING);
 
 							// Check if supplier invoice already exists or not
-							$sql='SELECT rowid FROM '.MAIN_DB_PREFIX."facture_fourn WHERE ref_supplier = '".$this->db->escape($object->newref)."' AND fk_soc = ".((int) $sellerid);
+							$sql='SELECT rowid FROM '.MAIN_DB_PREFIX."facture_fourn WHERE ref_supplier = '".$this->db->escape($object->ref)."' AND fk_soc = ".((int) $sellerid);
 
 							$resql = $this->db->query($sql);
 							if ($resql) {
@@ -261,11 +261,11 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 								if ($supplierinvoicefound) {
 									$tmpsupplierinvoice->fetch($supplierinvoicefound);
 
-									dol_syslog("There is already a reverted invoice with ref ".$object->newref." for thirdparty ".$sellerid);
+									dol_syslog("There is already a reverted invoice with ref ".$object->ref." for thirdparty ".$sellerid);
 									setEventMessages($langs->trans("ARevertInvoiceAlreadyExistsInEntity", $tmpsupplierinvoice->ref, $labelentity), null, 'warnings');
 								} else {
 									$tmpsupplierinvoice->date = $object->date;
-									$tmpsupplierinvoice->ref_supplier = $object->newref;
+									$tmpsupplierinvoice->ref_supplier = $object->ref;
 									$tmpsupplierinvoice->type = $object->type;
 									//$tmpsupplierinvoice->libelle = 'CAPEX-'.$object->ref_client;
 									$tmpsupplierinvoice->libelle = $object->ref_client;
