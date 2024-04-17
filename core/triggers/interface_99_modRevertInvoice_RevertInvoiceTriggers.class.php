@@ -217,7 +217,7 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 			//case 'BILL_MODIFY':
 			case 'BILL_VALIDATE':
 				global $mc;
-				if ($object->type == Facture::TYPE_STANDARD && is_object($mc)) {
+				if (in_array($object->type,array(Facture::TYPE_STANDARD,Facture::TYPE_CREDIT_NOTE)) && is_object($mc)) {
 					$constinvoicetarget = 'REVERTINVOICE_THIRDPARTYID_'.$object->socid;
 					$entityinvoicetarget = $conf->global->$constinvoicetarget;
 					if (! empty($entityinvoicetarget)) {  // This invoice is for a thirdparty that need a revert invoice
