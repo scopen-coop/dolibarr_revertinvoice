@@ -278,6 +278,7 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 									$tmpsupplierinvoice->cond_reglement_id = $object->cond_reglement_id;
 									$tmpsupplierinvoice->fk_account = $object->fk_account;
 									$tmpsupplierinvoice->array_options['options_wrike_project'] = $object->array_options['options_wrike_project'];
+                                    $tmpsupplierinvoice->array_options['options_fk_user_bap_valid'] = $user->id;
 
 									$tmpsupplierinvoice->lines = $object->lines;
 
