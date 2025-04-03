@@ -269,6 +269,7 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 									$tmpsupplierinvoice->type = $object->type;
 									//$tmpsupplierinvoice->libelle = 'CAPEX-'.$object->ref_client;
 									$tmpsupplierinvoice->libelle = $object->ref_client;
+									$tmpsupplierinvoice->label = $object->ref_client;
 									$tmpsupplierinvoice->socid = $sellerid;
 									$tmpsupplierinvoice->fk_project = $object->fk_project;
 									$tmpsupplierinvoice->note_private = $object->note_private;
@@ -277,7 +278,7 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 									$tmpsupplierinvoice->date_echeance = $object->date_lim_reglement;
 									$tmpsupplierinvoice->cond_reglement_id = $object->cond_reglement_id;
 									$tmpsupplierinvoice->fk_account = $object->fk_account;
-									$tmpsupplierinvoice->array_options['options_wrike_project'] = $object->array_options['options_wrike_project'];
+									//$tmpsupplierinvoice->array_options['options_wrike_project'] = $object->array_options['options_wrike_project'];
                                     $tmpsupplierinvoice->array_options['options_fk_user_bap_valid'] = $user->id;
 
 									$tmpsupplierinvoice->lines = $object->lines;
