@@ -265,7 +265,7 @@ class InterfaceRevertInvoiceTriggers extends DolibarrTriggers
 									setEventMessages($langs->trans("ARevertInvoiceAlreadyExistsInEntity", $tmpsupplierinvoice->ref, $labelentity), null, 'warnings');
 								} else {
 									$tmpsupplierinvoice->date = $object->date;
-									$tmpsupplierinvoice->ref_supplier = $object->ref;
+									$tmpsupplierinvoice->ref_supplier = $object->newref;
 									$tmpsupplierinvoice->type = $object->type;
 									//$tmpsupplierinvoice->libelle = 'CAPEX-'.$object->ref_client;
 									$tmpsupplierinvoice->libelle = $object->ref_client;
